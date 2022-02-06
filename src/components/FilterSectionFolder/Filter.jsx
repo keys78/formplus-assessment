@@ -2,7 +2,7 @@ import React from 'react';
 import SelectBox from './SelectBox';
 import useAxiosFetch from '../../utils/useAxiosFetch';
 
-const Filter = ({ templates, setTemplates }) => {
+const Filter = ({ templates, setTemplates, setTextState }) => {
     const { data } = useAxiosFetch('https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
     const allTemps = data && data
 
@@ -14,6 +14,7 @@ const Filter = ({ templates, setTemplates }) => {
     ]
 
     const onClick = (val) => {
+        setTextState(val.option)
         let sortedTemplates = []
 
         const allCat = val.option === "All"

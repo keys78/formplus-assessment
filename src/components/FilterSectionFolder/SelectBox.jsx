@@ -1,35 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 
-const SelectBox = ({options, newSelected, label, onClick}) => {
+const SelectBox = ({ options, newSelected, label, onClick }) => {
     const [selected, setSelected] = useState(newSelected)
     const [isDropped, setIsDropped] = useState(false)
 
-    // const selectVal = (value) => {
-    //     setSelected(value)
-    //     setIsDropped(!isDropped)
-    // }
-    
 
     const renderOptions = options.map((val, i) =>
-        <h1 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{ val.option}</h1>
+        <h1 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h1>
     )
-    // const selectVal = (value) => {
-    //     setSelected(value)
-    //     setIsDropped(!isDropped)
-    // }
-    
-    // const renderOptions = options.map((val, i) =>
-    //     <h1 key={i} onClick={() => selectVal(val.option)}>{ val.option}</h1>
-    // )
 
+    const optionsRef = useRef()
+    useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
+
+    const handleClickOutside = (event) => {
+        optionsRef.current && !optionsRef.current.contains(event.target) && setSelected(newSelected)
+    };
 
     return (
-        <SelectBoxWrapper>
+        <SelectBoxWrapper ref={optionsRef}>
+            
             <Label>{label}</Label>
             <SelectBoxContainer onClick={() => setIsDropped(!isDropped)}>
-                <h1>{selected}</h1>
+                <h5>{selected}</h5>
                 <img src="./assets/images/drop-chevron.png" alt="drop-chevron-formplus" />
             </SelectBoxContainer>
 
@@ -44,12 +38,14 @@ const SelectBox = ({options, newSelected, label, onClick}) => {
 const SelectBoxWrapper = styled.div`
     position: relative;
     width: 160px;
+
 `
 const SelectBoxContainer = styled.div`
     width: 100%;
     border: 0.5px solid #C4C4C4;
     padding: 10px 15px 11px 23px;
     display: flex;
+    border-radius: 2px;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
@@ -60,7 +56,7 @@ const Label = styled.label`
     position: absolute;
     background: #fff;
     top:-7px;
-    left: 24px;
+    left: 22px;
     padding: 0 2px;
     font-family: circular-std-light;   
     font-size: 11px;
@@ -76,9 +72,13 @@ const Dropdown = styled.div`
     width: 100%;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 
-    h1{
+    h5{
         padding:5px 15px 6px 23px;
+        text-align: left !important;
         transition: all .2s ease-in-out;
+        font-family: circular-std-book !important;
+        color: #000 !important;
+
         &:hover{
             cursor: pointer;
             transform: scale(0.98)

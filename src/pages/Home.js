@@ -15,17 +15,25 @@ const Home = () => {
         setTemplates(data && data.slice(0, 20))
     }, [data])
 
+    const [textState, setTextState] = useState('All')
+
     return (
         <ScreenWrapper>
             <FilterSection searchTerm={searchTerm} 
             setSearchTerm={setSearchTerm} 
-            templates={templates} setTemplates={setTemplates} isLoading={isLoading} fetchError={fetchError}/>
+            templates={templates} 
+            setTemplates={setTemplates} 
+            isLoading={isLoading} 
+            fetchError={fetchError}
+            setTextState={setTextState}
+            />
             <Menu 
             searchTerm={searchTerm} 
             setSearchTerm={setSearchTerm} 
             templates={templates} 
             setTemplates={setTemplates}
             isLoading={isLoading} fetchError={fetchError}
+            textState={textState}
             />
         </ScreenWrapper>
     )
@@ -33,7 +41,6 @@ const Home = () => {
 
 const ScreenWrapper = styled.section`
     padding: 79px 116px 399px 116px;
-    border: 1px solid black;
 `
 
 export default Home;
