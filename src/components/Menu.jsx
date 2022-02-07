@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import TemplateModel from './TemplateModel';
 import styled from 'styled-components';
 import Pagination from './Pagination';
+import Loader from './Loader';
 
 const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, textState }) => {
     useEffect(() => {
@@ -33,9 +34,8 @@ const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, text
 
     return (
         <>
-            {isLoading && <p className="statusMsg">Loading..</p>}
-            {!isLoading && fetchError && <div className="statusMsg" style={{ color: "red" }}>{fetchError}</div>}
-
+            {isLoading && <Loader />}
+            {!isLoading && fetchError && <div style={{ color: "red" }}>{fetchError}</div>}
             {!isLoading && !fetchError &&
                 <>
                     <ViewScroller>

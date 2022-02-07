@@ -26,60 +26,213 @@
 
 
 
-.selectdiv {
-  position: relative;
-  /*Don't really need this just for demo styling*/
-  
-  float: left;
-  min-width: 160px;
-  margin: 50px 33%;
-  border: 1px solid black;
-}
 
-/* IE11 hide native button (thanks Matt!) */
-select::-ms-expand {
-display: none;
-}
 
-.selectdiv:after {
-  content: '>';
-  font: 30px "Consolas", monospace;
-  color: #333;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right: 18px;
-  /*Adjust for position however you want*/
-  
-  top: 10px;
-  padding: 0 0 2px;
-/*   border-bottom: 1px solid #999; */
-  /*left line */
-  
-  position: absolute;
-  pointer-events: none;
-}
 
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* Add some styling */
-  
+.progress-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
   display: block;
   width: 100%;
-  max-width: 320px;
-  height: 50px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  -ms-word-break: normal;
-  word-break: normal;
+  margin: 0;
+  overflow: hidden;
+  background: #f4f4f4;
+  z-index: 2000;
 }
+
+.progress-1 .determinate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #26a69a;
+  -webkit-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+}
+
+.progress-1 .indeterminate {
+  background-color: #0039d6;
+}
+
+.progress-1 .indeterminate:before {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395)
+    infinite;
+  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.progress-1 .indeterminate:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1)
+    infinite;
+  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1)
+    infinite;
+  -webkit-animation-delay: 1.15s;
+  animation-delay: 1.15s;
+
+}
+
+ 
+@-webkit-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+
+}
+
+ 
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+
+}
+
+@-webkit-keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.placeholder {
+  max-width: 300px;
+}
+
+.faux-image-wrapper {
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 100%; /* Or height: 200px; */
+}
+
+.faux-image {
+  background: #dddddd;
+  border-radius: 4px;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.faux-text {
+  background: #dddddd;
+  border-radius: 4px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.faux-text.short {
+  width: 75%;
+}
+
+.shimmer {
+  overflow: hidden;
+  position: relative;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  animation: shimmer 1s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
