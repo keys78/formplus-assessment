@@ -35,6 +35,13 @@ const PaginationCont = styled.div`
         border: 1px solid #3F3F3F;
         border-radius: 3px;
     }
+
+    @media screen and (max-width: 640px){
+        padding: 76px 40px 0 40px;
+    }
+    @media screen and (max-width: 540px){
+        padding: 46px 20px 0 20px;
+    }
 `
 
 

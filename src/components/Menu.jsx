@@ -69,7 +69,19 @@ const CardDisplay = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    gap:69px;
+    gap:100px 69px;
+
+    @media screen and (max-width: 1200px){
+        gap: 69px 20px;
+    }
+
+    @media screen and (max-width: 1200px){
+        gap: 50px 20px;
+    }
+
+    @media screen and (max-width: 1024px){
+        grid-template-columns: repeat(2, 1fr);
+    }
    
 `
 const CountAndCheckers = styled.div`
@@ -80,6 +92,10 @@ const CountAndCheckers = styled.div`
         font-size: 18px;
         line-height: 23px;
         color: #3F3E3E;
+
+        @media screen and (max-width: 640px){
+            font-size: 15px;
+        }
     }
 
     h2 {
@@ -89,42 +105,35 @@ const CountAndCheckers = styled.div`
         line-height: 18px;
         text-align: right;
         color: #989898;
+        @media screen and (max-width: 640px){
+            font-size: 12px;
+        }
     }
 `
 
 const ViewScroller = styled.div`
+    width: 100%;
     height:700px;
     overflow-y: scroll;
     margin-right: 20px;
     padding:0 5px;
+    
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
 
-    /* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
+    ::-webkit-scrollbar-track {
+      background:  transparent; 
+      margin-top: 30px;  
+    
+    }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background:  transparent; 
-  margin-top: 30px;
-    /* margin-bottom: 10px; */
-    background-clip: content-box;   
-  
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #171616; 
-  height: 2px;
-  width: 2px;
-  border-radius: 10px;
-  
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+    ::-webkit-scrollbar-thumb {
+      background: #171616; 
+      height: 2px;
+      width: 2px;
+      border-radius: 10px;
+    }
 `
 
 export default Menu;

@@ -24,6 +24,18 @@ const AdsBoxContainer = styled.div`
         margin-left: 26px;
         color: #000;
     }
+
+    @media screen and (max-width: 1200px){
+        padding: 22px 12px 13px 12px;
+    }
+
+    @media screen and (max-width: 1024px){
+        margin: 40px 0 63px 0;
+    }
+    @media screen and (max-width: 640px){
+        font-size: 14px;
+        margin: 40px 0 33px 0;
+    }
 `
 
 export default AdsBox;

@@ -10,15 +10,15 @@ import styled from 'styled-components';
 const FilterSection = ({ searchTerm, setSearchTerm, templates, setTemplates, setTextState }) => {
     return (
         <FilterSectionWrapper>
-            <div className='flex items-center justify-between'>
+            <div className='lg:flex-row flex-col flex items-center justify-between'>
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-                <div className='flex items-center justify-between gap-5'>
-                    <h1>Sort By:</h1>
+                <FilterBulk className='flex items-center justify-between sm:gap-5 gap-2'>
+                    <h1 className='sm:block hidden'>Sort By:</h1>
                     <Filter templates={templates} setTemplates={setTemplates} setTextState={setTextState}/>
                     <SortByOrder templates={templates} setTemplates={setTemplates}/>
                     <SortByDate templates={templates} setTemplates={setTemplates}/>
-                </div>
+                </FilterBulk>
 
             </div>
 
@@ -39,8 +39,15 @@ const FilterSectionWrapper = styled.div`
         line-height: 18px;
         text-align: center;
         color: #989898;
+        
     }
+    
    
+`
+const FilterBulk = styled.div`
+     @media screen and (max-width: 640px){
+       width: 100%;
+    }
 `
 
 export default FilterSection;

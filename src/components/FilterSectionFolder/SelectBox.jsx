@@ -8,7 +8,7 @@ const SelectBox = ({ options, newSelected, label, onClick }) => {
 
 
     const renderOptions = options.map((val, i) =>
-        <h1 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h1>
+        <h5 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h5>
     )
 
     const optionsRef = useRef()
@@ -24,7 +24,7 @@ const SelectBox = ({ options, newSelected, label, onClick }) => {
             <Label>{label}</Label>
             <SelectBoxContainer onClick={() => setIsDropped(!isDropped)}>
                 <h5>{selected}</h5>
-                <img src="./assets/images/drop-chevron.png" alt="drop-chevron-formplus" />
+                <img className='sm:w-4 w-2' src="./assets/images/drop-chevron.png" alt="drop-chevron-formplus" />
             </SelectBoxContainer>
 
             {isDropped && <Dropdown>
@@ -39,6 +39,14 @@ const SelectBoxWrapper = styled.div`
     position: relative;
     width: 160px;
 
+    @media screen and (max-width: 640px){
+       width: 140px;
+    }
+    @media screen and (max-width: 540px){
+       width: 110px;
+       font-size: 14px;
+    }
+
 `
 const SelectBoxContainer = styled.div`
     width: 100%;
@@ -49,6 +57,10 @@ const SelectBoxContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+
+    @media screen and (max-width: 540px){
+        padding: 7px 10px 6px 10px;
+    }
     
 `
 
@@ -72,7 +84,7 @@ const Dropdown = styled.div`
     width: 100%;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 
-    h5{
+    h5 {
         padding:5px 15px 6px 23px;
         text-align: left !important;
         transition: all .2s ease-in-out;
@@ -83,8 +95,13 @@ const Dropdown = styled.div`
             cursor: pointer;
             transform: scale(0.98)
         }
+
+        @media screen and (max-width: 540px){
+        padding: 7px 10px 6px 10px;
+        white-space: nowrap;
     }
-    h1:nth-child(even){
+    }
+    h5:nth-child(even){
         background: #f3f3f3;
     }
 `

@@ -28,6 +28,11 @@ const InputBox = styled.input`
     &:focus {
         outline: none;
     }
+
+    @media screen and (max-width: 540px){
+        padding: 7px 0 7px 12px;
+        font-size: 12px;
+    }
 `
 
 export default Input

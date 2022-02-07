@@ -18,6 +18,7 @@ const TemplateModelBox = styled.div`
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
     border-radius: 2px;
     width: 100%;
+    position: relative;
     
     div {
         padding: 19px 20px 41px 20px;
@@ -33,6 +34,14 @@ const TemplateModelBox = styled.div`
         padding-bottom: 17px;
         line-height: 30px;
         color: #333447;
+
+        @media screen and (max-width: 768px){
+        font-weight: 400;
+        font-size: 18px;
+    }
+        @media screen and (max-width: 540px){
+            line-height: 20px;
+    }
     }
 
     p {
@@ -40,6 +49,10 @@ const TemplateModelBox = styled.div`
         font-size: 14px;
         line-height: 17px;
         color: #3F3E3E;
+
+        @media screen and (max-width: 768px){
+        font-size: 12px;
+    }
     }
     h6 {
         font-family: circular-std-book;
@@ -52,6 +65,13 @@ const TemplateModelBox = styled.div`
         border-bottom-left-radius:2px;
         cursor: pointer;
         border:0 1px 1px 1px solid #e0e0e0;
+        position: absolute;
+        width: 100%;
+
+        @media screen and (max-width: 768px){
+            padding: 7px 0 7px 22px;
+            font-size: 12px;
+        }
     }
 `
 

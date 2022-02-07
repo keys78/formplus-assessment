@@ -12,7 +12,7 @@ const Home = () => {
     const [templates, setTemplates] = useState([]);
 
     useEffect(() => {
-        setTemplates(data && data.slice(0, 20))
+        setTemplates(data && data)
     }, [data])
 
     const [textState, setTextState] = useState('All')
@@ -41,6 +41,19 @@ const Home = () => {
 
 const ScreenWrapper = styled.section`
     padding: 79px 116px 399px 116px;
+
+    @media screen and (max-width: 1200px){
+        padding: 79px 50px 399px 50px;
+    }
+    @media screen and (max-width: 1024px){
+        padding: 50px 30px 399px 30px;
+    }
+    @media screen and (max-width: 640px){
+        padding: 50px 30px 49px 30px;
+    }
+    @media screen and (max-width: 540px){
+        padding: 50px 20px 30px 20px;
+    }
 `
 
 export default Home;

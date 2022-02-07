@@ -13,7 +13,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <img src={searchIcon} alt="search-icon" />
+            <img className='sm:w-5 w-3' src={searchIcon} alt="search-icon" />
         </SearchContainer>
     )
 }
@@ -28,6 +28,18 @@ const SearchContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 319px;
+
+    @media screen and (max-width: 1024px){
+       margin-bottom: 40px;
+       width: 100%;
+    }
+
+    @media screen and (max-width: 640px){
+       margin-bottom: 20px;
+    }
+
+  
+
 `
 
 export default SearchBar
