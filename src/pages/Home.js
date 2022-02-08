@@ -11,17 +11,38 @@ const Home = () => {
     const { data, isLoading, fetchError } = useAxiosFetch('https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
     const [templates, setTemplates] = useState([]);
 
+    const x = templates
+    // console.log(x)
+
+    const [filtered, setFiltered] = useState([])
+
     useEffect(() => {
         setTemplates(data && data)
-    }, [data])
+        console.log(x)
+    }, [filtered, data])
+
+    useEffect(() => {
+        searchTemplates();
+    }, [searchTerm])
+    
+    const searchTemplates = () => {
+        if(searchTerm !== '') {
+            const searchFilter = templates.filter((template) =>
+            template.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+            setFiltered(searchFilter)
+         } else {
+            setFiltered(templates)
+         }
+    }
 
     const [textState, setTextState] = useState('All')
+
 
     return (
         <ScreenWrapper>
             <FilterSection searchTerm={searchTerm} 
             setSearchTerm={setSearchTerm} 
-            templates={templates} 
+            templates={filtered} 
             setTemplates={setTemplates} 
             isLoading={isLoading} 
             fetchError={fetchError}
@@ -30,7 +51,7 @@ const Home = () => {
             <Menu 
             searchTerm={searchTerm} 
             setSearchTerm={setSearchTerm} 
-            templates={templates} 
+            templates={filtered} 
             setTemplates={setTemplates}
             isLoading={isLoading} fetchError={fetchError}
             textState={textState}

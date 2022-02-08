@@ -46,6 +46,10 @@ const SelectBoxWrapper = styled.div`
        width: 110px;
        font-size: 14px;
     }
+    @media screen and (max-width: 400px){
+       width: 100px;
+       font-size: 12px;
+    }
 
 `
 const SelectBoxContainer = styled.div`
@@ -75,6 +79,11 @@ const Label = styled.label`
     line-height: 13px;
     letter-spacing: 0.01em;
     color: #8F8B8B;
+
+    @media screen and (max-width: 540px){
+      left: 9px;
+      font-size: 10px;
+    }
 `
 
 const Dropdown = styled.div`

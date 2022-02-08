@@ -24,6 +24,10 @@ const TemplateModelBox = styled.div`
         padding: 19px 20px 41px 20px;
         min-height: 160px;
         
+        @media screen and (max-width: 540px){
+            padding: 15px 10px 21px 10px;
+            min-height: 140px;
+        }
     }
 
     h1 {
@@ -41,7 +45,9 @@ const TemplateModelBox = styled.div`
     }
         @media screen and (max-width: 540px){
             line-height: 20px;
-    }
+            font-size: 14px;
+            padding-bottom: 12px;
+        }
     }
 
     p {
@@ -52,6 +58,9 @@ const TemplateModelBox = styled.div`
 
         @media screen and (max-width: 768px){
         font-size: 12px;
+    }
+        @media screen and (max-width: 540px){
+        font-size: 11px;
     }
     }
     h6 {
@@ -71,6 +80,10 @@ const TemplateModelBox = styled.div`
         @media screen and (max-width: 768px){
             padding: 7px 0 7px 22px;
             font-size: 12px;
+        }
+        @media screen and (max-width: 540px){
+            text-align: center;
+            padding: 7px 0;
         }
     }
 `

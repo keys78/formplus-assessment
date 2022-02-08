@@ -9,11 +9,10 @@ import Pagination from './Pagination';
 import Loader from './Loader';
 
 const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, textState }) => {
-    useEffect(() => {
-        const searchFilter = templates.filter((template) =>
-            template.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
-        setTemplates(searchFilter)
-    }, [searchTerm])
+   
+
+
+
 
     const [currentPage, setCurrentPage] = useState(1);
     const [usersPerPage, setUsersPerPage] = useState(15);
@@ -38,11 +37,11 @@ const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, text
             {!isLoading && fetchError && <div style={{ color: "red" }}>{fetchError}</div>}
             {!isLoading && !fetchError &&
                 <>
-                    <ViewScroller>
-                        <CountAndCheckers className='flex items-center justify-between'>
+                <CountAndCheckers className='flex items-center justify-between'>
                             <h3>{textState} Templates</h3>
                             <h2>{templates.length} templates</h2>
                         </CountAndCheckers>
+                    <ViewScroller>
                         <CardDisplay>
                             {templates && currentUsers.map((template, i) => (
                                 <TemplateModel key={i} template={template} i={i} />
@@ -75,8 +74,11 @@ const CardDisplay = styled.div`
         gap: 69px 20px;
     }
 
-    @media screen and (max-width: 1200px){
+    @media screen and (max-width: 1024px){
         gap: 50px 20px;
+    }
+    @media screen and (max-width: 540px){
+        gap: 50px 10px;
     }
 
     @media screen and (max-width: 1024px){
@@ -116,7 +118,7 @@ const ViewScroller = styled.div`
     height:700px;
     overflow-y: scroll;
     margin-right: 20px;
-    padding:0 5px;
+    padding:7px;
     
     ::-webkit-scrollbar {
       width: 5px;
@@ -124,8 +126,6 @@ const ViewScroller = styled.div`
 
     ::-webkit-scrollbar-track {
       background:  transparent; 
-      margin-top: 30px;  
-    
     }
 
     ::-webkit-scrollbar-thumb {

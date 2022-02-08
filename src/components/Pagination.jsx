@@ -6,14 +6,14 @@ const Pagination = ({ usersPerPage, totalUsers, first, last, previousPage, nextP
     return (
         <PaginationCont>
             <div className='flex items-center justify-between gap-12 relative'>
-                <div className='cursor-pointer cursor-pointer flex gap-3 items-center ' onClick={previousPage}>
+                <div className='cursor-pointer cursor-pointer flex sm:gap-3 gap-1 items-center ' onClick={previousPage}>
                     {first > 1 && <img className='rotate-180' src="../assets/images/right-chevron.png" alt="chevron-right" />}
                     Previous
                 </div>
                 <div> <span>{first + 1}</span>&nbsp; of &nbsp;{totalUsers} </div>
                 <div className='flex gap-10 items-center' >
 
-                    <div className='cursor-pointer flex gap-3 items-center' onClick={nextPage}>
+                    <div className='cursor-pointer flex sm:gap-3 gap-1 items-center' onClick={nextPage}>
                         Next
                         <img src="../assets/images/right-chevron.png" alt="chevron-right" />
                     </div>
@@ -26,7 +26,12 @@ const Pagination = ({ usersPerPage, totalUsers, first, last, previousPage, nextP
 const PaginationCont = styled.div`
     width: 100%;
     padding: 76px 95px 0 95px;
-    font-family: circular-std-book;   
+    font-family: circular-std-book;
+    
+    @media screen and (max-width: 540px){
+        font-size: 14px;
+    }
+
 
 
     span {
@@ -34,13 +39,18 @@ const PaginationCont = styled.div`
         background: #FFFFFF;
         border: 1px solid #3F3F3F;
         border-radius: 3px;
+
+        @media screen and (max-width: 540px){
+         padding: 4px 8px;
+        }
     }
 
     @media screen and (max-width: 640px){
         padding: 76px 40px 0 40px;
     }
     @media screen and (max-width: 540px){
-        padding: 46px 20px 0 20px;
+        padding: 46px 15px 0 15px;
+        white-space: nowrap;
     }
 `
 
