@@ -6,55 +6,46 @@ import useAxiosFetch from '../utils/useAxiosFetch';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTemplates } from '../redux/templatesSlice';
 
-const Home = () => {
+const Home = ({ template }) => {
     const [searchTerm, setSearchTerm] = useState('')
     const { data, isLoading, fetchError } = useAxiosFetch('https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
     const [templates, setTemplates] = useState([]);
 
-    const x = templates
-    // console.log(x)
-
-    const [filtered, setFiltered] = useState([])
+    useEffect(() => {
+        setTemplates(data)
+    }, [data])
 
     useEffect(() => {
-        setTemplates(data && data)
-        console.log(x)
-    }, [filtered, data])
-
-    useEffect(() => {
-        searchTemplates();
+        if (searchTerm !== '') {
+            const searchFilter = data && data.filter((template) =>
+                template.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+            setTemplates(searchFilter)
+        } else {
+            setTemplates(templates)
+        }
     }, [searchTerm])
-    
-    const searchTemplates = () => {
-        if(searchTerm !== '') {
-            const searchFilter = templates.filter((template) =>
-            template.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
-            setFiltered(searchFilter)
-         } else {
-            setFiltered(templates)
-         }
-    }
+
 
     const [textState, setTextState] = useState('All')
 
 
     return (
         <ScreenWrapper>
-            <FilterSection searchTerm={searchTerm} 
-            setSearchTerm={setSearchTerm} 
-            templates={filtered} 
-            setTemplates={setTemplates} 
-            isLoading={isLoading} 
-            fetchError={fetchError}
-            setTextState={setTextState}
+            <FilterSection searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                templates={templates}
+                setTemplates={setTemplates}
+                isLoading={isLoading}
+                fetchError={fetchError}
+                setTextState={setTextState}
             />
-            <Menu 
-            searchTerm={searchTerm} 
-            setSearchTerm={setSearchTerm} 
-            templates={filtered} 
-            setTemplates={setTemplates}
-            isLoading={isLoading} fetchError={fetchError}
-            textState={textState}
+            <Menu
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                templates={templates}
+                setTemplates={setTemplates}
+                isLoading={isLoading} fetchError={fetchError}
+                textState={textState}
             />
         </ScreenWrapper>
     )
