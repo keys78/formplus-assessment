@@ -7,11 +7,12 @@ import Loader from './Loader';
 const Menu = ({ templates, isLoading, fetchError, textState }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [tempsPerPage, setTempsPerPage] = useState(15);
+    const [tempsPerPage, setTempsPerPage] = useState(1800);
     const indexOfLastTemp = currentPage * tempsPerPage;
     const indexOfFirstTemp = indexOfLastTemp - tempsPerPage;
     const currentTemps = templates && templates.slice(indexOfFirstTemp, indexOfLastTemp)
     const totalPages = templates && templates.length / tempsPerPage
+
 
     const prev = () => {
         currentPage <= 1 ? setCurrentPage(currentPage) : setCurrentPage(currentPage - 1)
@@ -39,10 +40,9 @@ const Menu = ({ templates, isLoading, fetchError, textState }) => {
                         </CardDisplay>
                     </ViewScroller>
                     <Pagination
-                        totalTemps={templates && templates.length}
+                        totalPages={totalPages}
                         currentPage={currentPage}
                         first={indexOfFirstTemp}
-                        last={indexOfLastTemp}
                         previousPage={prev}
                         nextPage={next}
                     />
@@ -115,7 +115,7 @@ const ViewScroller = styled.div`
 
     ::-webkit-scrollbar-thumb {
       background: #171616; 
-      height: 2px;
+      height: 100px;
       width: 2px;
       border-radius: 10px;
     }

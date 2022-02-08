@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Pagination = ({ totalTemps, first, previousPage, nextPage }) => {
+const Pagination = ({ first, currentPage, totalPages, previousPage, nextPage }) => {
 
     return (
         <PaginationCont>
@@ -10,7 +10,7 @@ const Pagination = ({ totalTemps, first, previousPage, nextPage }) => {
                     {first > 1 && <img className='rotate-180' src="../assets/images/right-chevron.png" alt="chevron-right" />}
                     Previous
                 </div>
-                <div> <span>{first + 1}</span>&nbsp; of &nbsp;{totalTemps} </div>
+                <div> <span>{currentPage}</span>&nbsp; of &nbsp;{Math.floor(totalPages)} </div>
                 <div className='flex gap-10 items-center' >
 
                     <div className='cursor-pointer flex sm:gap-3 gap-1 items-center' onClick={nextPage}>
