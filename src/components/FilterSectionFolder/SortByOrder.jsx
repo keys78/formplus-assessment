@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SelectBox from './SelectBox';
 import useAxiosFetch from '../../utils/useAxiosFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTemplates } from '../../redux/templatesSlice';
 
 const SortByOrder = ({templates, setTemplates}) => {
     const { data } = useAxiosFetch('https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
@@ -13,7 +11,6 @@ const SortByOrder = ({templates, setTemplates}) => {
         { option: 'Ascending' },
         { option: 'Descending' },
     ]
-
 
     const onClick = (val) => {
         let sortedTemplates = []

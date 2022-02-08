@@ -5,13 +5,14 @@ import styled from 'styled-components'
 const SelectBox = ({ options, newSelected, label, onClick }) => {
     const [selected, setSelected] = useState(newSelected)
     const [isDropped, setIsDropped] = useState(false)
+    const optionsRef = useRef()
 
 
     const renderOptions = options.map((val, i) =>
         <h5 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h5>
     )
 
-    const optionsRef = useRef()
+
     useEffect(() => { document.body.addEventListener('mousedown', handleClickOutside) })
 
     const handleClickOutside = (event) => {
@@ -20,7 +21,6 @@ const SelectBox = ({ options, newSelected, label, onClick }) => {
 
     return (
         <SelectBoxWrapper ref={optionsRef}>
-            
             <Label>{label}</Label>
             <SelectBoxContainer onClick={() => setIsDropped(!isDropped)}>
                 <h5>{selected}</h5>

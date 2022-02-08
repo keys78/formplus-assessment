@@ -1,25 +1,28 @@
 import React from 'react'
 
 const Loader = () => {
+    const createLoaders = () => {
+        const loaders = [];
+
+        for (let i = 1; i < 16; i++) {
+            loaders.push(
+                <div key={i} className='placeholder-loader shimmer'>
+                    <h1></h1>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <h6></h6>
+                </div>
+            )
+        }
+        return loaders
+    }
+
     return (
         <>
-            <div className="progress-1" >
-                <div className="indeterminate" />
-            </div >
-
-            {/* <div class="placeholder shimmer">
-                <div class="faux-image-wrapper">
-                    <div class="faux-image" />
-                </div>
-                <div class="faux-text" />
-                <div class="faux-text short" />
-            </div> */}
-            
-              <div className='text-center font-bold'>
-        Loading Templates, Please Wait...
-        </div>
-
-
+            <div className='placeholder-container'>
+                {createLoaders()}
+            </div>
         </>
     )
 }

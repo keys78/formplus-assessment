@@ -9,7 +9,6 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
         <SearchContainer>
             <Input
                 placeholder={'Search Templates'}
-                type="search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />

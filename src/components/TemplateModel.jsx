@@ -8,7 +8,7 @@ const TemplateModel = ({ template, i}) => {
                 <h1>{template.name}</h1>
                 <p>{template.description}</p>
             </div>
-            <h6>Use Template</h6>
+            <h6>{'Use Template'}</h6>
         </TemplateModelBox>
     )
 };

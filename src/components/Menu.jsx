@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react';
-// import useAxiosFetch from '../utils/useAxiosFetch';
-// import { useGetTemplatesQuery } from '../services/templatesApi';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getTemplates } from '../redux/templatesSlice';
+import React, { useState } from 'react';
 import TemplateModel from './TemplateModel';
 import styled from 'styled-components';
 import Pagination from './Pagination';
 import Loader from './Loader';
 
-const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, textState }) => {
-   
-
-
-
+const Menu = ({ templates, isLoading, fetchError, textState }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [usersPerPage, setUsersPerPage] = useState(15);
-    const indexOfLastUser = currentPage * usersPerPage;
-    const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    const currentUsers = templates && templates.slice(indexOfFirstUser, indexOfLastUser)
-    const totalPages = templates && templates.length / usersPerPage
+    const [tempsPerPage, setTempsPerPage] = useState(15);
+    const indexOfLastTemp = currentPage * tempsPerPage;
+    const indexOfFirstTemp = indexOfLastTemp - tempsPerPage;
+    const currentTemps = templates && templates.slice(indexOfFirstTemp, indexOfLastTemp)
+    const totalPages = templates && templates.length / tempsPerPage
 
     const prev = () => {
         currentPage <= 1 ? setCurrentPage(currentPage) : setCurrentPage(currentPage - 1)
@@ -29,34 +21,30 @@ const Menu = ({ searchTerm, templates, setTemplates, isLoading, fetchError, text
         currentPage < totalPages && setCurrentPage(currentPage + 1)
     }
 
-
-
     return (
         <>
             {isLoading && <Loader />}
             {!isLoading && fetchError && <div style={{ color: "red" }}>{fetchError}</div>}
             {!isLoading && !fetchError &&
                 <>
-                <CountAndCheckers className='flex items-center justify-between'>
-                            <h3>{textState} Templates</h3>
-                            <h2>{templates.length} templates</h2>
-                        </CountAndCheckers>
+                    <CountAndCheckers className='flex items-center justify-between'>
+                        <h3>{textState} Templates</h3>
+                        <h2>{templates.length} {templates.length === 1 ? 'template' : 'templates'} </h2>
+                    </CountAndCheckers>
                     <ViewScroller>
                         <CardDisplay>
-                            {templates && currentUsers.map((template, i) => (
+                            {templates && currentTemps.map((template, i) => (
                                 <TemplateModel key={i} template={template} i={i} />
                             ))}
                         </CardDisplay>
                     </ViewScroller>
                     <Pagination
-                        usersPerPage={usersPerPage}
-                        totalUsers={templates && templates.length}
+                        totalTemps={templates && templates.length}
                         currentPage={currentPage}
-                        first={indexOfFirstUser}
-                        last={indexOfLastUser}
+                        first={indexOfFirstTemp}
+                        last={indexOfLastTemp}
                         previousPage={prev}
                         nextPage={next}
-                        setUsersPerPage={setUsersPerPage}
                     />
                 </>
             }
@@ -75,14 +63,11 @@ const CardDisplay = styled.div`
     }
 
     @media screen and (max-width: 1024px){
+        grid-template-columns: repeat(2, 1fr);
         gap: 50px 20px;
     }
     @media screen and (max-width: 540px){
         gap: 50px 10px;
-    }
-
-    @media screen and (max-width: 1024px){
-        grid-template-columns: repeat(2, 1fr);
     }
    
 `

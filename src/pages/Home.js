@@ -3,16 +3,20 @@ import styled from 'styled-components'
 import FilterSection from '../components/FilterSectionFolder/FilterSection';
 import Menu from '../components/Menu';
 import useAxiosFetch from '../utils/useAxiosFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTemplates } from '../redux/templatesSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getTemplates } from '../services/templatesSlice';
 
-const Home = ({ template }) => {
+const Home = () => {
     const [searchTerm, setSearchTerm] = useState('')
     const { data, isLoading, fetchError } = useAxiosFetch('https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
     const [templates, setTemplates] = useState([]);
 
+    // const { templates } = useSelector((state) => state.templates)
+    // const dispatch = useDispatch()
+
     useEffect(() => {
         setTemplates(data)
+        // dispatch(getTemplates())
     }, [data])
 
     useEffect(() => {
