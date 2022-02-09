@@ -1,12 +1,10 @@
-import { queryByTitle, render, screen, fireEvent } from '@testing-library/react';
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
+import { render, } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import AdsBox from '../components/AdsBox';
 import Filter from '../components/FilterSectionFolder/Filter';
 import FilterSection from '../components/FilterSectionFolder/FilterSection';
 import Input from '../components/FilterSectionFolder/Input';
 import SearchBar from '../components/FilterSectionFolder/SearchBar';
-import SelectBox from '../components/FilterSectionFolder/SelectBox';
 import SortByDate from '../components/FilterSectionFolder/SortByDate';
 import SortByOrder from '../components/FilterSectionFolder/SortByOrder';
 import Menu from '../components/Menu';
@@ -50,13 +48,6 @@ const TestSearchBar = () => {
         </BrowserRouter>
     )
 };
-const TestSelect = () => {
-    return (
-        <BrowserRouter>
-            <SelectBox />
-        </BrowserRouter>
-    )
-};
 const TestFilter = () => {
     return (
         <BrowserRouter>
@@ -95,7 +86,7 @@ const TestLoader = () => {
 const TestPagination = () => {
     return (
         <BrowserRouter>
-            <SortByOrder />
+            <Pagination />
         </BrowserRouter>
     )
 };
@@ -127,9 +118,6 @@ describe("All page and components", () => {
         it('searchbar component is without errors', async () => {
             render(<TestSearchBar />)
         }),
-        it('select component is without errors', async () => {
-            render(<TestSelect />)
-        }),
         it('filter component is without errors', async () => {
             render(<TestFilter />)
         }),
@@ -145,10 +133,11 @@ describe("All page and components", () => {
         it('loader component is without errors', async () => {
             render(<TestLoader />)
         }),
-        it('select component is without errors', async () => {
+        it('pagination component is without errors', async () => {
             render(<TestPagination />)
         }),
         it('template_model component is without errors', async () => {
             render(<TestTemplateModel />)
         })
+      
 });
