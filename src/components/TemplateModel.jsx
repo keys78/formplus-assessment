@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TemplateModel = ({ template, i}) => {
+const TemplateModel = ({ templates, template, i}) => {
     return (
         <TemplateModelBox>
             <div>
-                <h1>{template.name}</h1>
-                <p>{template.description}</p>
+                <h1>{templates && template.name}</h1>
+                <p>{templates && template.description}</p>
             </div>
             <h6>{'Use Template'}</h6>
         </TemplateModelBox>

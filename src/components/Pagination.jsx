@@ -10,12 +10,12 @@ const Pagination = ({ first, currentPage, totalPages, previousPage, nextPage }) 
                     {first > 1 && <img className='rotate-180' src="../assets/images/right-chevron.png" alt="chevron-right" />}
                     Previous
                 </div>
-                <div> <span>{currentPage}</span>&nbsp; of &nbsp;{Math.floor(totalPages)} </div>
+                <div> <span>{currentPage <= totalPages ? currentPage : currentPage - 1}</span>&nbsp; of &nbsp;{(Math.trunc(totalPages))} </div>
                 <div className='flex gap-10 items-center' >
 
                     <div className='cursor-pointer flex sm:gap-3 gap-1 items-center' onClick={nextPage}>
                         Next
-                        <img src="../assets/images/right-chevron.png" alt="chevron-right" />
+                        {currentPage < totalPages && <img src="../assets/images/right-chevron.png" alt="chevron-right" />}
                     </div>
                 </div>
             </div>

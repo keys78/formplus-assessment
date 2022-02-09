@@ -8,7 +8,7 @@ const SelectBox = ({ options, newSelected, label, onClick }) => {
     const optionsRef = useRef()
 
 
-    const renderOptions = options.map((val, i) =>
+    const renderOptions = options?.options.map((val, i) =>
         <h5 key={i} onClick={() => onClick(val, setSelected(val.option), setIsDropped(!isDropped))}>{val.option}</h5>
     )
 

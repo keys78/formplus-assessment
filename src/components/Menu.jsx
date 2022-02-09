@@ -7,7 +7,7 @@ import Loader from './Loader';
 const Menu = ({ templates, isLoading, fetchError, textState }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [tempsPerPage, setTempsPerPage] = useState(1800);
+    const [tempsPerPage, setTempsPerPage] = useState(1770);
     const indexOfLastTemp = currentPage * tempsPerPage;
     const indexOfFirstTemp = indexOfLastTemp - tempsPerPage;
     const currentTemps = templates && templates.slice(indexOfFirstTemp, indexOfLastTemp)
@@ -30,12 +30,12 @@ const Menu = ({ templates, isLoading, fetchError, textState }) => {
                 <>
                     <CountAndCheckers className='flex items-center justify-between'>
                         <h3>{textState} Templates</h3>
-                        <h2>{templates.length} {templates.length === 1 ? 'template' : 'templates'} </h2>
+                        <h2>{templates && templates.length} {templates && templates.length === 1 ? 'template' : 'templates'} </h2>
                     </CountAndCheckers>
                     <ViewScroller>
                         <CardDisplay>
                             {templates && currentTemps.map((template, i) => (
-                                <TemplateModel key={i} template={template} i={i} />
+                                <TemplateModel templates={templates} key={i} template={template} i={i} />
                             ))}
                         </CardDisplay>
                     </ViewScroller>
