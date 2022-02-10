@@ -1,4 +1,4 @@
-# Create React App FormPlus --)
+## Create React App FormPlus__
 Bulky data handling tasking and state management<br>
 
 
@@ -13,7 +13,7 @@ Bulky data handling tasking and state management<br>
 [Link to live](https://emmanuel-formplus-assessment.netlify.app/)
 
 ## The Challenge
-To be build react to handle large amount of data.
+React app to handle large amounts of data
 
 ## Expected Bejaviour
 - Project to be able to parse data from the provide api link to UI.
