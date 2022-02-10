@@ -15,7 +15,7 @@ Bulky data handling tasking and state management<br>
 ## The Challenge
 React app to handle large amounts of data
 
-## Expected Bejaviour
+## Expected Behaviour
 - Project to be able to parse data from the provide api link to UI.
 - Only one category on the templates can be active at a time.
 - Template headers should bear their respective namme, when on filter on onsearch.
