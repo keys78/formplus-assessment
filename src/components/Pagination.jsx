@@ -20,7 +20,7 @@ const Pagination = ({ first, currentPage, totalPages, previousPage, nextPage }) 
                 </div>
             </div>
         </PaginationCont>
-    )
+    );
 }
 
 const PaginationCont = styled.div`

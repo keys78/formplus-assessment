@@ -1,74 +1,28 @@
-<!-- # Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+# Create React App FormPlus --)
+Bulky data handling tasking and state management<br>
 
 
+## How do I get setup ?
+1. Clone Project and [cd] to project directory
+2. Run `yarn install` in root folder to install dependencies
+3. Type `yarn start` in the root folder to initialise project on local dev. env.
+4. Navigate to your browser http://localhost:[your port in dev.env] e.g. http://localhost:3000
+5. To run tests cases, type  `yarn test` in your terminal/ssh client
 
-Updating Soon --- ||
+
+[Link to live](https://emmanuel-formplus-assessment.netlify.app/)
+
+## The Challenge
+To be build react to handle large amount of data.
+
+## Expected Bejaviour
+- Project to be able to parse data from the provide api link to UI.
+- Only one category on the templates can be active at a time.
+- Template headers should bear their respective namme, when on filter on onsearch.
+- “All templates” is active by default. Changing the category section resets all other filters and the Search bar value.
+- Template category can either be "All", "Education", "E-commerce" or "Health".
+- Users should also be able to search through each template category individually using only their template names.
+- Users should be able to filter each template category based on - either not both (reset the other filter when one is active).
+- The Alphabetical Order filter can either be "Default", "Ascending" or "Descending" order
+- The Date created filter can either be "Default", "Ascending" or "Descending" order
+- General design principle apllication.
